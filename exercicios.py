@@ -1,18 +1,9 @@
 nomeHotel = input("Digite o nome do hotel : ")
 cidade = input("Digite a sua cidade : ")
-estrelas = float(input("Digite a quantidade de estrelas (1 a 5): "))
+estrelas = input("Digite a quantidade de estrelas (1 a 5): ")
 
-print(cidade[0:8])
-
-qtdnome = len(nomeHotel)
-qtdcidade = len(cidade)
-
-if qtdnome >= 6 :
-    print(nomeHotel[0:6])
-else:   
-    print(nomeHotel)
-    
-if qtdcidade >= 8 :
-    print(cidade[0:6])
-else:   
-    print(nomeHotel)   
+print("*" * 20)
+print("*" * 7 + nomeHotel + "*" * 7 )
+print("*" * 4 + estrelas +" estrela(s)" + "*" * 4 )
+print("*" * 6 + cidade + "*" * 6 )
+print("*" * 20)
