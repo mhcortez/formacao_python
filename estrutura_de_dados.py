@@ -34,3 +34,4 @@ print("-"*40)
 print("buscando")
 print("O objeto '6' aparece " + str(lista1.count(6))+ " vezes na lista" )
 print("-"*40)
+#fatiando listas
