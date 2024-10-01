@@ -21,10 +21,21 @@ print(f"Existem {contador} letras na frase")
 print("Letra D  " + "*"*40)
 
 
+#number = int(input("Verificar numeros primos ate: "))
+#cont = 0
+#for i in range(2, number):
+#        if number % 2 != 0:
+#            cont += 1
+#print(cont)
+#print("Letra D  " + "*"*40)
+
 number = int(input("Verificar numeros primos ate: "))
-cont = 0
-for i in range(2, number):
-        if number % i != 0:
-            cont += 1
-print(cont)
-print("Letra D  " + "*"*40)
+qntPrimo = 0
+for elemento in range(0,number):
+    c = 0
+    for divisor in range(1, elemento +1):
+        if elemento % divisor == 0:
+            c = c + 1
+    if c == 2:
+        qntPrimo += 1
+        print(elemento)
