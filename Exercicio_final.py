@@ -57,9 +57,7 @@ def sacar(valor, saldo):
         raise SaldoInsuficienteError("Saldo insuficiente para sacar o valor solicitado.")
     saldo -= valor
     return saldo
-
 try:
     saldo_atual = sacar(100, 1000)
 except SaldoInsuficienteError as e:
     print(e)
-    
