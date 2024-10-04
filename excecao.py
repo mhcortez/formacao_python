@@ -23,7 +23,7 @@ else:
 finally:
     print("Obrigado pela atenção")
 '''
-
+'''
 idade = int(input("Digite a idade: "))
 def verifica_idade(idade):    
     if idade < 18:
@@ -33,4 +33,19 @@ def verifica_idade(idade):
 try:
     verifica_idade(idade)
 except ValueError as e:
+    print(e)
+'''
+
+class SaldoInsuficienteError(Exception):
+    """Exceção levantada quando o saldo é insuficiente para realizar uma transacao"""
+    pass
+def sacar(valor, saldo):
+    if valor > saldo:
+        raise SaldoInsuficienteError("Saldo insuficiente para sacar o valor solicitado.")
+    saldo -= valor
+    return saldo
+
+try:
+    saldo_atual = sacar(100, 1000)
+except SaldoInsuficienteError as e:
     print(e)
