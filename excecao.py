@@ -1,3 +1,4 @@
+'''
 try:
     arquivo= open('dados.txt', 'r')
     conteudo = arquivo.read()
@@ -7,7 +8,7 @@ else:
     print(conteudo)
 finally:
     print("Operação finalizada")
-
+'''
 
 '''
 try:
@@ -22,3 +23,14 @@ else:
 finally:
     print("Obrigado pela atenção")
 '''
+
+idade = int(input("Digite a idade: "))
+def verifica_idade(idade):    
+    if idade < 18:
+        raise ValueError("Idade deve ser maior ou igual a 18.")
+    else:
+        print("Entrada permitida.")
+try:
+    verifica_idade(idade)
+except ValueError as e:
+    print(e)
