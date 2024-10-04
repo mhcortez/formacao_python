@@ -2,10 +2,10 @@ import os
 conta = {}  # Define um dicionário vazio
 
 def desenha_tela():
-    print("_"*90)
-    print("|  MENU "+" "*81+"|")
-    print("|"+" "*88+"|")
-    print("|         Escolha uma opção: "+" "*60+"|")
+    print("_"*60)
+    print("|  MENU "+" "*51+"|")
+    print("|"+" "*59+"|")
+    print("|         Escolha uma opção: "+" "*40+"|")
     print("|         1 - CRIAR CONTA: "+" "*56+"|")
     print("|         2 - LISTAR CONTA: "+" "*56+"|")
     print("|         3 - DEPOSITAR: "+" "*58+"|")
