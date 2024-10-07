@@ -3,51 +3,83 @@ conta = {}  # Define um dicionário vazio
 
 def desenha_tela():
     print("_"*60)
-    print("|  MENU "+" "*51+"|")
+    print("|  MENU "+" "*52+"|")
     print("|"+" "*59+"|")
-    print("|         Escolha uma opção: "+" "*40+"|")
-    print("|         1 - CRIAR CONTA: "+" "*56+"|")
-    print("|         2 - LISTAR CONTA: "+" "*56+"|")
-    print("|         3 - DEPOSITAR: "+" "*58+"|")
-    print("|         4 - SACAR: "+" "*61+"|")
-    print("|         5 - ENCERRAR: "+" "*69+"|")
-    print("|"+" "*88+"|")
-    print("-"*90)
+    print("|         Escolha uma opção: "+" "*31+"|")
+    print("|         1 - CRIAR CONTA: "+" "*33+"|")
+    print("|         2 - LISTAR CONTA: "+" "*32+"|")
+    print("|         3 - DEPOSITAR: "+" "*35+"|")
+    print("|         4 - SACAR: "+" "*39+"|")
+    print("|         5 - ENCERRAR: "+" "*36+"|")
+    print("|"+" "*59+"|")
+    print("-"*60)
     
+#TODO: Desacoplar tudo em funcoes
+#TODO: Tentar usar aquivos separados
+#TODO: Tentar usar classe para conta
+#TODO: fazer documentação
+#FIXME:usar tratamento de erros personalizados
+
 desenha_tela()
 while True:      
     opcao = int(input("DIGITE OPÇÃO : "))
 
-    if opcao == 5:  
-        break  # Encerra o laço
-    elif opcao == 1:
-        cliente = input("Nome do Cliente: ")  
-        numero_da_Conta = float(input("Numero da Conta: "))
-        valor_saldo = float(input("Digite o Saldo: "))
+    if opcao == 5:  # Encerra o programa
+        break  
+    
+    elif opcao == 1: # Cria uma nova conta
+        if (len(conta) <= 0 ): 
+            cliente = input("Nome do Cliente: ")  
+            numero_da_Conta = float(input("Numero da Conta: "))
+            valor_saldo = float(input("Digite o Saldo: "))
+            
+            conta["cliente"] = cliente
+            conta["conta"] = numero_da_Conta
+            conta["saldo"] = valor_saldo                
+            os.system("cls")
+            desenha_tela()
+        else:
+            print("Já existe conta cadastrada.")
         
-        conta[cliente] = cliente
-        conta[numero_da_Conta] = numero_da_Conta
-        conta[valor_saldo] = valor_saldo                
-        os.system("cls")
-        desenha_tela()
-    elif opcao == 3:
-        nome_do_produto = input("Nome do Cliente: ")        
-        #if (nome_do_produto in compras):
-        #    del compras[nome_do_produto]
-        #    os.system("cls")
-        #    desenha_tela()
-        #else:
-        #    print("Não existe o produto" + nome_do_produto + " na lista")
-    elif opcao == 2:
-        for chave, valor in conta.items():             
-            print(f"{chave}: {valor}")      
-            print("")      
+    elif opcao == 2: #Listar conta
+        if (len(conta) > 0 ):           
+            for chave, valor in conta.items():             
+                print(f"{chave}: {valor}")      
+                print("")      
+        else:
+            print("Não existe conta cadastrada")
+            
+    elif opcao == 3: #Depositar
+        nome_do_cliente = input("Nome do Cliente: ")        
+        if (nome_do_cliente in conta.values()):
+            valor_deposito = float(input("Valor do Depósito: "))
+            saldo = conta.get("saldo")
+            novo_saldo = saldo + valor_deposito            
+            conta.update({'saldo':novo_saldo})
+            print(f"O novo saldo da conta é: {conta['saldo']}")            
+        else:
+            print("Não existe conta para do correntista :" + nome_do_cliente)
+    
+    elif opcao == 4: #Sacar        
+        nome_do_cliente = input("Nome do Cliente: ")        
+        if (nome_do_cliente in conta.values()):
+            valor_saque = float(input("Valor do Saque: "))
+            saldo = conta.get("saldo")
+            if (saldo >= valor_saque):
+                novo_saldo = saldo - valor_saque
+                conta.update({'saldo':novo_saldo})
+                print("Saque efetuado com sucesso!")
+                print(f"O novo saldo da conta é: {conta['saldo']}")            
+            else:
+                print("O valor solicitado é maior que o valor disponível no saldo.")                           
+        else:
+            print("Não existe conta para do correntista  : " + nome_do_cliente)                
+        
     else:
         print("Opção Não existe no MENU")
         break
         os.system("cls")
-    
-    
+       
     
 class SaldoInsuficienteError(Exception):
     """Exceção levantada quando o saldo é insuficiente para realizar uma transacao"""
