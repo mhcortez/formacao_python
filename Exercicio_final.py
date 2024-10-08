@@ -14,11 +14,11 @@ def desenha_tela():
     print("|"+" "*59+"|")
     print("-"*60)
     
-#TODO: Desacoplar tudo em funcoes
-#TODO: Tentar usar aquivos separados
-#TODO: Tentar usar classe para conta
+#TODO: Desacoplar tudo em Classes
+#TODO: modularizar o codigo
 #TODO: fazer documentação
 #FIXME:usar tratamento de erros personalizados
+#BUG:tratamento de erros
 
 desenha_tela()
 while True:      
@@ -81,15 +81,16 @@ while True:
         os.system("cls")
        
     
+'''
 class SaldoInsuficienteError(Exception):
     """Exceção levantada quando o saldo é insuficiente para realizar uma transacao"""
-    pass
-def sacar(valor, saldo):
-    if valor > saldo:
-        raise SaldoInsuficienteError("Saldo insuficiente para sacar o valor solicitado.")
-    saldo -= valor
-    return saldo
-try:
-    saldo_atual = sacar(100, 1000)
-except SaldoInsuficienteError as e:
-    print(e)
+    def sacar(valor, saldo):
+        if valor > saldo:
+            raise SaldoInsuficienteError("Saldo insuficiente para sacar o valor solicitado.")
+        saldo -= valor
+        return saldo
+        try:
+            saldo_atual = sacar(100, 1000)
+        except SaldoInsuficienteError as e:
+            print(e)
+'''
