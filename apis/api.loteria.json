@@ -1,0 +1,49 @@
+[
+    {
+      "acumulou": true,
+      "concurso": 0,
+      "data": "string",
+      "dataProximoConcurso": "string",
+      "dezenas": [
+        "string"
+      ],
+      "dezenasOrdemSorteio": [
+        "string"
+      ],
+      "estadosPremiados": [
+        {}
+      ],
+      "local": "string",
+      "localGanhadores": [
+        {
+          "ganhadores": 0,
+          "municipio": "string",
+          "nomeFatansiaUL": "string",
+          "posicao": 0,
+          "serie": "string",
+          "uf": "string"
+        }
+      ],
+      "loteria": "string",
+      "mesSorte": "string",
+      "observacao": "string",
+      "premiacoes": [
+        {
+          "descricao": "string",
+          "faixa": 0,
+          "ganhadores": 0,
+          "valorPremio": 0
+        }
+      ],
+      "proximoConcurso": 0,
+      "timeCoracao": "string",
+      "trevos": [
+        "string"
+      ],
+      "valorAcumuladoConcursoEspecial": 0,
+      "valorAcumuladoConcurso_0_5": 0,
+      "valorAcumuladoProximoConcurso": 0,
+      "valorArrecadado": 0,
+      "valorEstimadoProximoConcurso": 0
+    }
+  ]
